@@ -1,5 +1,7 @@
 package com.example.meeshoclone.domain.di
 
+import com.example.meeshoclone.data.repoimpl.RepoImpl
+import com.example.meeshoclone.domain.repo.Repo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
@@ -12,9 +14,9 @@ import javax.inject.Singleton
 @InstallIn (SingletonComponent::class)
 class DomainModule {
 
-//    @Provides
-//    fun provideRepo(firebaseAuth: FirebaseAuth,firebaseFirestore: FirebaseFirestore) : Repo{
-//
-//        return repoImpl(firebaseAuth,firebaseFirestore)
-//    }
+    @Provides
+    fun provideRepo(firebaseAuth: FirebaseAuth,firebaseFirestore: FirebaseFirestore) : Repo {
+
+        return RepoImpl(firebaseAuth, firebaseFirestore)
+   }
 }
