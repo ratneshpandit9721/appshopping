@@ -13,7 +13,8 @@ class ProductDataModels(
     var price: String = "",
     var finalPrice: String = "",
     var availableunits: String = "",
-    var createdby : String = ""
+    var createdby : String = "",
+    var description: String = ""
 
 ) {
 }

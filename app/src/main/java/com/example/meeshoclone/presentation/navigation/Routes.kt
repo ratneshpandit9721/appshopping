@@ -63,11 +63,14 @@ sealed class Routes {
     data class EachCategoryItemsScreen(val categoryName: String)
 
     @Serializable
-    data class EachProductDetailsScreen(val productID: String)
+    data class EachProductDetailsScreen(val productID: String) : Routes()
+
 
 
 
 }
+
+
 
 
 

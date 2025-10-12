@@ -1,3 +1,12 @@
+/*
+Question:
+What is the most complicated code you have written independently without AI or anyone else's assistance?
+Attach the question as multiline comment above your code and upload the file.
+*/
+
+
+
+
 package com.example.meeshoclone.presentation.viewModels
 
 
@@ -29,13 +38,14 @@ import com.example.meeshoclone.domain.usecase.GetUserUsecase
 import com.example.meeshoclone.domain.usecase.LoginUserUsecases
 import com.example.meeshoclone.domain.usecase.UpdateDataUsecase
 import com.example.meeshoclone.domain.usecase.UserProfileImageUsecase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
+@HiltViewModel
 class ShoppingAppViewModel @Inject constructor(
 
 
@@ -60,6 +70,8 @@ class ShoppingAppViewModel @Inject constructor(
 
 
     ) : ViewModel() {
+
+
 
     private val _signUpScreenState = MutableStateFlow(SignupScreenState())
     val signupScreenState = _signUpScreenState.asStateFlow()
@@ -526,9 +538,9 @@ class ShoppingAppViewModel @Inject constructor(
         }
     }
 
-    fun loginUser(userData: UserData) {
+    fun loginUser(user: UserData) {
         viewModelScope.launch {
-            loginUsecase.loginUserWithEmailAndPassword(userData).collect {
+            loginUsecase.loginUserWithEmailAndPassword(user).collect {
                 when (it) {
                     is ResultState.Error -> {
                         _loginScreenState.value = _loginScreenState.value.copy(

@@ -17,7 +17,7 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.meeshoclone"
+        applicationId = "com.example.connect"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -58,6 +58,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.ui.test.android)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -65,6 +66,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(platform("com.google.firebase:firebase-bom:34.1.0"))
     val room_version = "2.7.2"
 
     implementation("androidx.room:room-runtime:$room_version")
@@ -75,8 +77,7 @@ dependencies {
 
     // If this project only uses Java source, use the Java annotationProcessor
     // No additional plugins are necessary
-    annotationProcessor("androidx.room:room-compiler:$room_version")
-    ksp("androidx.room:room-compiler:2.5.0")
+
 
     implementation("androidx.navigation:navigation-compose:2.9.0")
     implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
@@ -84,7 +85,7 @@ dependencies {
     ksp("com.google.dagger:hilt-android-compiler:2.56.2")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
     // Import the Firebase BoM
-    implementation(platform("com.google.firebase:firebase-bom:34.1.0"))
+
 
 
     // TODO: Add the dependencies for Firebase products you want to use
@@ -95,8 +96,9 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
+
+
     implementation("com.google.firebase:firebase-storage")
-    implementation("com.google.firebase:firebase-storage-ktx")
     //pager
     implementation("com.google.accompanist:accompanist-pager:0.28.0")
     implementation("com.google.accompanist:accompanist-pager-indicators:0.28.0")
